@@ -10,6 +10,14 @@ class DecimalToRomanTest {
     private val decimalToRoman = DecimalToRoman()
 
     @Test
+    fun lessOrEqualToZero() {
+        assertEquals("", decimalToRoman.convert(0))
+        assertThrows<DecimalToRoman.NegativeNumber> {
+            decimalToRoman.convert(-1)
+        }
+    }
+
+    @Test
     fun convertOneToTen() {
         assertEquals("I", decimalToRoman.convert(1))
         assertEquals("II", decimalToRoman.convert(2))

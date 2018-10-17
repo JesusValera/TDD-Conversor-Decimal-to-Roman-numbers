@@ -1,5 +1,7 @@
 package decimalToRoman
 
+import java.lang.RuntimeException
+
 class DecimalToRoman {
 
     private var result: String = ""
@@ -7,6 +9,9 @@ class DecimalToRoman {
     fun convert(_number: Int): String {
         var number = _number
         result = ""
+
+        if (number < 0)
+            throw NegativeNumber()
 
         if (5 == number) {
             result += "V"
@@ -25,4 +30,5 @@ class DecimalToRoman {
         return result
     }
 
+    class NegativeNumber : RuntimeException()
 }
