@@ -12,31 +12,28 @@ class DecimalToRoman {
 
         if (number < 0) throw NegativeNumber()
 
-        if (10 <= number) {
-            result += "X"
-            number -= 10
-        }
-
-        if (9 == number) {
-            result += "IX"
-            return result
-        }
-
-        if (5 <= number) {
-            result += "V"
-            number -= 5
-        }
-
-        if (4 == number) {
-            result += "IV"
-            return result
-        }
-
-        for (i in 0 until number) {
-            result += "I"
-        }
+        number = subtractAmount(100, number, "C")
+        number = subtractAmount(90, number, "XC")
+        number = subtractAmount(50, number, "L")
+        number = subtractAmount(40, number, "XL")
+        number = subtractAmount(10, number, "X")
+        number = subtractAmount(9, number, "IX")
+        number = subtractAmount(5, number, "V")
+        number = subtractAmount(4, number, "IV")
+        subtractAmount(1, number, "I")
 
         return result
+    }
+
+    private fun subtractAmount(subtract: Int, _number: Int, romanNumber: String): Int {
+        var number = _number
+
+        while (number >= subtract) {
+            number -= subtract
+            result += romanNumber
+        }
+
+        return number
     }
 
     class NegativeNumber : RuntimeException()
