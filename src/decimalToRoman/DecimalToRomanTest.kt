@@ -1,26 +1,21 @@
 package decimalToRoman
 
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class DecimalToRomanTest {
 
-    val decimalToRoman = DecimalToRoman()
+    private val decimalToRoman = DecimalToRoman()
 
     @Test
-    fun convertOne() {
+    fun convertOneToTen() {
         assertEquals("I", decimalToRoman.convert(1))
-    }
-
-    @Test
-    fun convertTwo() {
         assertEquals("II", decimalToRoman.convert(2))
-    }
-
-    @Test
-    fun convertThree() {
         assertEquals("III", decimalToRoman.convert(3))
+        assertEquals("IV", decimalToRoman.convert(4))
+        assertEquals("V", decimalToRoman.convert(5))
     }
 
 }
