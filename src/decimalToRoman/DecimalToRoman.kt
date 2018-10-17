@@ -10,17 +10,26 @@ class DecimalToRoman {
         var number = _number
         result = ""
 
-        if (number < 0)
-            throw NegativeNumber()
+        if (number < 0) throw NegativeNumber()
 
-        if (5 == number) {
+        if (10 <= number) {
+            result += "X"
+            number -= 10
+        }
+
+        if (9 == number) {
+            result += "IX"
+            return result
+        }
+
+        if (5 <= number) {
             result += "V"
             number -= 5
         }
 
         if (4 == number) {
             result += "IV"
-            number -= 4
+            return result
         }
 
         for (i in 0 until number) {
