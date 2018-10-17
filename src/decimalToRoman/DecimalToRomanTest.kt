@@ -13,4 +13,14 @@ class DecimalToRomanTest {
         assertEquals("I", decimalToRoman.convert(1))
     }
 
+    @Test
+    fun convertTwo() {
+        assertEquals("II", decimalToRoman.convert(2))
+    }
+
+    @Test
+    fun convertThree() {
+        assertEquals("III", decimalToRoman.convert(3))
+    }
+
 }
